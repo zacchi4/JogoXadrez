@@ -7,7 +7,6 @@ import Xadrez.Color;
 import Xadrez.PecaXadrez;
 import Xadrez.XadrezPosicao;
 
-
 public class UI {
 
 	public static final String ANSI_RESET = "\u001B[0m";
@@ -30,39 +29,42 @@ public class UI {
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
 	public static void imprimirTabuleiro(PecaXadrez[][] pecas) {
-		for (int i = 0; i<pecas.length;i++) {
-			System.out.print((8-i)+" ");
-			for (int j = 0; j<pecas.length;j++) {
+		for (int i = 0; i < pecas.length; i++) {
+			System.out.print((8 - i) + " ");
+			for (int j = 0; j < pecas.length; j++) {
 				imprirPeca(pecas[i][j]);
 			}
 			System.out.println();
 		}
 		System.out.println("  a b c d e f g h ");
 	}
-	
+
 	private static void imprirPeca(PecaXadrez peca) {
 		if (peca == null) {
-            System.out.print("-");
-        }
-        else {
-            if (peca.getColor() == Color.WHITE) {
-                System.out.print(ANSI_WHITE + peca + ANSI_RESET);
-            }
-            else {
-                System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
-            }
-        }
-        System.out.print(" ");
+			System.out.print("-");
+		} else {
+			if (peca.getColor() == Color.WHITE) {
+				System.out.print(ANSI_WHITE + peca + ANSI_RESET);
+			} else {
+				System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
+			}
+		}
+		System.out.print(" ");
 	}
-	
+
 	public static XadrezPosicao lendoPosicao(Scanner sc) {
 		try {
 			String s = sc.nextLine();
 			char col = s.charAt(0);
 			int lin = Integer.parseInt(s.substring(1));
 			return new XadrezPosicao(col, lin);
-		}catch(RuntimeException ie){
+		} catch (RuntimeException ie) {
 			throw new InputMismatchException("Erro lendo posição de xadrez, valores validos sao de a1 ate h8 !");
 		}
+	}
+
+	public static void limpandoTela() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
 }
