@@ -1,13 +1,13 @@
 package Xadrez;
 
-import Tabuleiro.Posicao;
+import tabuleiro.Posicao;
 
-public class XadresPosicao {
+public class XadrezPosicao {
 
 	private char coluna;
 	private int linha;
 	
-	public XadresPosicao(char coluna, int linha) {
+	public XadrezPosicao(char coluna, int linha) {
 		
 		if(coluna < 'a' || coluna > 'h') {
 			throw new XadrezException("Atenção coluna inexistente no tabuleiro (a até h)!");
@@ -33,8 +33,8 @@ public class XadresPosicao {
 		return new Posicao(8-linha,  coluna - 'a');
 	}
 	
-	protected static XadresPosicao paraPosicao(Posicao pos) {
-		return new XadresPosicao((char)('a'-pos.getColuna()), 8 - pos.getLinha());
+	protected static XadrezPosicao paraPosicao(Posicao pos) {
+		return new XadrezPosicao((char)('a'-pos.getColuna()), 8 - pos.getLinha());
 	}
 
 	@Override

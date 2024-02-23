@@ -1,7 +1,12 @@
-package Principal;
+package principal;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import Xadrez.Color;
 import Xadrez.PecaXadrez;
+import Xadrez.XadrezPosicao;
+
 
 public class UI {
 
@@ -50,4 +55,14 @@ public class UI {
         System.out.print(" ");
 	}
 	
+	public static XadrezPosicao lendoPosicao(Scanner sc) {
+		try {
+			String s = sc.nextLine();
+			char col = s.charAt(0);
+			int lin = Integer.parseInt(s.substring(1));
+			return new XadrezPosicao(col, lin);
+		}catch(RuntimeException ie){
+			throw new InputMismatchException("Erro lendo posição de xadrez, valores validos sao de a1 ate h8 !");
+		}
+	}
 }

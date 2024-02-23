@@ -1,4 +1,4 @@
-package Tabuleiro;
+package tabuleiro;
 
 public class Tabuleiro {
 
@@ -70,5 +70,21 @@ public class Tabuleiro {
 		}
 		
 		return peca(pos) != null ; 
+	}
+	
+	public Peca removePeca(Posicao pos) {
+		if(!existePosicao(pos)) {
+			throw new TabuleiroException ("Posição não existe no tabuleiro!");
+		}
+		
+		if(peca(pos) == null) {
+			return null;
+		}
+		
+		Peca aux = peca(pos);
+		aux.posicao = null;
+		pecas[pos.getLinha()][pos.getColuna()] = null;
+		
+		return aux;
 	}
 }
