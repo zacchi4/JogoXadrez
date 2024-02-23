@@ -83,6 +83,12 @@ public class PartidaXadrez {
 		return cap;
 	}
 	
+	public boolean[][] movimentosPossiveis(XadrezPosicao p){
+		Posicao  pos = p.qualPosicao();
+		validacaoPosicaoOrigem(pos);
+		return tabuleiro.peca(pos).movimentosPossiveis();
+	}
+	
 	
 	
 }
