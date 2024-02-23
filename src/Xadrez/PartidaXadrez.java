@@ -1,13 +1,14 @@
 package xadrez;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 import xadrez.peca.King;
+import xadrez.peca.Peao;
 import xadrez.peca.Torre;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PartidaXadrez {
 
@@ -56,16 +57,34 @@ public class PartidaXadrez {
 
 	private void iniciandoPartida() {
 		// BRANCO
-		colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('h', 8, new Torre(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('h', 8, new Torre(tabuleiro, Color.BLACK));
 
-		colocandoNovaPeca('e', 8, new King(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('e', 8, new King(tabuleiro, Color.BLACK));
+		
+		colocandoNovaPeca('a', 7, new Peao(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('b', 7, new Peao(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('c', 7, new Peao(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('d', 7, new Peao(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('e', 7, new Peao(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('f', 7, new Peao(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('g', 7, new Peao(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('h', 7, new Peao(tabuleiro, Color.BLACK));
 
 		// PRETO
-		colocandoNovaPeca('a', 1, new Torre(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('h', 1, new Torre(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('a', 1, new Torre(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
 
-		colocandoNovaPeca('e', 1, new King(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('e', 1, new King(tabuleiro, Color.WHITE));
+		
+		colocandoNovaPeca('a', 2, new Peao(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('b', 2, new Peao(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('c', 2, new Peao(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('d', 2, new Peao(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('e', 2, new Peao(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('f', 2, new Peao(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('g', 2, new Peao(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('h', 2, new Peao(tabuleiro, Color.WHITE));
 
 	}
 
