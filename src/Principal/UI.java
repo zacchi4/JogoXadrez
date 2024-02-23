@@ -61,6 +61,12 @@ public class UI {
 		System.out.println();
 		System.out.println("Turno: "+partida.getTurno());
 		System.out.println("Aguardando Jogador: "+(partida.getJogadorAtual() == Color.WHITE? "BRANCO" : "PRETO"));
+		
+		if(partida.isCheck()) {
+			System.out.println(ANSI_RED);
+			System.out.println("CHECK !");
+			System.out.println(ANSI_RESET);
+		}
 	}
 
 	private static void imprirPeca(PecaXadrez peca, boolean background) {

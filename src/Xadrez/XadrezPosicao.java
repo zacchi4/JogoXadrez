@@ -10,11 +10,11 @@ public class XadrezPosicao {
 	public XadrezPosicao(char coluna, int linha) {
 		
 		if(coluna < 'a' || coluna > 'h') {
-			throw new XadrezException("Atenção coluna inexistente no tabuleiro (a até h)!");
+			throw new XadrezException("Atencao coluna inexistente no tabuleiro (a até h)!");
 		}
 		
 		if(linha < 1 || linha > 8) {
-			throw new XadrezException("Atenção linha inexistente no tabuleiro (1 até 8)!");
+			throw new XadrezException("Atencao linha inexistente no tabuleiro (1 até 8)!");
 		}
 		
 		this.coluna = coluna;
@@ -34,7 +34,7 @@ public class XadrezPosicao {
 	}
 	
 	protected static XadrezPosicao paraPosicao(Posicao pos) {
-		return new XadrezPosicao((char)('a'-pos.getColuna()), 8 - pos.getLinha());
+		return new XadrezPosicao((char)('a' + pos.getColuna()), 8 - pos.getLinha());
 	}
 
 	@Override

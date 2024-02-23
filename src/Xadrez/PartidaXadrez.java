@@ -22,6 +22,7 @@ public class PartidaXadrez {
 
 	private int turno;
 	private Color jogadorAtual;
+	private boolean check;
 
 	public PartidaXadrez() {
 		tabuleiro = new Tabuleiro(8, 8);
@@ -38,6 +39,10 @@ public class PartidaXadrez {
 
 	public Color getJogadorAtual() {
 		return jogadorAtual;
+	}
+
+	public boolean isCheck() {
+		return check;
 	}
 
 	public PecaXadrez[][] getPecas() {
@@ -59,6 +64,13 @@ public class PartidaXadrez {
 	}
 
 	private void iniciandoPartida() {
+		/* TESTE * /
+		colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('a', 1, new Torre(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('e', 1, new King(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('e', 8, new King(tabuleiro, Color.BLACK));
+		*/
+		
 		// BRANCO
 		colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('b', 8, new Cavalo(tabuleiro, Color.BLACK));
@@ -68,7 +80,7 @@ public class PartidaXadrez {
 		colocandoNovaPeca('f', 8, new Bispo(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('g', 8, new Cavalo(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('h', 8, new Torre(tabuleiro, Color.BLACK));
-		
+
 		colocandoNovaPeca('a', 7, new Peao(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('b', 7, new Peao(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('c', 7, new Peao(tabuleiro, Color.BLACK));
@@ -87,7 +99,7 @@ public class PartidaXadrez {
 		colocandoNovaPeca('f', 1, new Bispo(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('g', 1, new Cavalo(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
-		
+
 		colocandoNovaPeca('a', 2, new Peao(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('b', 2, new Peao(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('c', 2, new Peao(tabuleiro, Color.WHITE));
@@ -96,7 +108,7 @@ public class PartidaXadrez {
 		colocandoNovaPeca('f', 2, new Peao(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('g', 2, new Peao(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('h', 2, new Peao(tabuleiro, Color.WHITE));
-
+		
 	}
 
 	public PecaXadrez movendoPeca(XadrezPosicao posOri, XadrezPosicao posDes) {
@@ -107,6 +119,13 @@ public class PartidaXadrez {
 		validacaoPosicaoDestino(origem, destino);
 
 		Peca pecaCapturada = movendoPeca(origem, destino);
+		
+		if(testeCheck(jogadorAtual)) {
+			desfazerMovimento(origem, destino, pecaCapturada);
+			throw new XadrezException("Voce nao pode se colocar em Check !");
+		}
+		
+		check = (testeCheck(oponente(jogadorAtual)))?true:false;
 
 		proximoTurno();
 
@@ -138,19 +157,61 @@ public class PartidaXadrez {
 		Peca p = tabuleiro.removePeca(ori);
 		Peca cap = tabuleiro.removePeca(des);
 
-		if(cap != null) {
+		if (cap != null) {
 			pecasCapturadas.add(cap);
 			pecasTabuleiro.remove(cap);
 		}
-		
+
 		tabuleiro.colocarPeca(p, des);
 		return cap;
+	}
+
+	private void desfazerMovimento(Posicao ori, Posicao des, Peca peca) {
+		Peca p = tabuleiro.removePeca(des);
+		tabuleiro.colocarPeca(p, ori);
+
+		if (peca != null) {
+			tabuleiro.colocarPeca(peca, des);
+			pecasCapturadas.remove(peca);
+			pecasTabuleiro.add(peca);
+		}
 	}
 
 	public boolean[][] movimentosPossiveis(XadrezPosicao p) {
 		Posicao pos = p.qualPosicao();
 		validacaoPosicaoOrigem(pos);
 		return tabuleiro.peca(pos).movimentosPossiveis();
+	}
+
+	private Color oponente(Color cor) {
+		return cor == Color.WHITE ? Color.BLACK : Color.WHITE;
+	}
+
+	private PecaXadrez rei(Color cor) {
+		List<Peca> pecas = pecasTabuleiro.stream().filter(x -> ((PecaXadrez) x).getColor() == cor).toList();
+		for (Peca p : pecas) {
+			if (p instanceof King) {
+				return (PecaXadrez) p;
+			}
+		}
+
+		throw new IllegalStateException("Não existe rei" + (cor == Color.WHITE ? "BRANCO" : "PRETO") + " !!!");
+	}
+
+	private boolean testeCheck(Color cor) {
+		Posicao kingPosicao = rei(cor).getXadrezPosicao().qualPosicao();
+		List<Peca> oponentePecas = pecasTabuleiro.stream().filter(x -> ((PecaXadrez) x).getColor() == oponente(cor))
+				.toList();
+
+		for (Peca p : oponentePecas) {
+			boolean[][] mat = p.movimentosPossiveis();
+
+			if (mat[kingPosicao.getLinha()][kingPosicao.getColuna()]) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	private void proximoTurno() {
