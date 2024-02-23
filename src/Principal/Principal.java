@@ -1,10 +1,14 @@
 package Principal;
 
+import Tabuleiro.Posicao;
+
 public class Principal {
 
 	public static void main(String[] args) {
 		
-		System.out.println("TESTE JDK");
+		Posicao pos = new Posicao(3, 1);
+		
+		System.out.println(pos);
 		
 	}
 
