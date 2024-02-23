@@ -1,14 +1,12 @@
 package Principal;
 
-import Tabuleiro.Posicao;
+import Tabuleiro.Tabuleiro;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		
-		Posicao pos = new Posicao(3, 1);
-		
-		System.out.println(pos);
+		Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 		
 	}
 
