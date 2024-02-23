@@ -55,6 +55,15 @@ public class Peao extends PecaXadrez {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
 			
+			//ACIMA PRIMEIRA JOGADA
+			if(posicao.getLinha() == 6) {
+				p.setValor(posicao.getLinha() - 2, posicao.getColuna());
+
+				if (getTabuleiro().existePosicao(p) && podeMoverNormal(p)) {
+					mat[p.getLinha()][p.getColuna()] = true;
+				}
+			}
+			
 		} else {
 			
 			// ABAIXO
@@ -76,6 +85,16 @@ public class Peao extends PecaXadrez {
 			
 			if (getTabuleiro().existePosicao(p) && podeMoverDiagonal(p)) {
 				mat[p.getLinha()][p.getColuna()] = true;
+			}
+			
+			// ABAIXO PRIMEIRA JOGADA
+			if(posicao.getLinha() == 1) {
+				p.setValor(posicao.getLinha() + 2, posicao.getColuna());
+
+				if (getTabuleiro().existePosicao(p) && podeMoverNormal(p)) {
+					mat[p.getLinha()][p.getColuna()] = true;
+				}
+				
 			}
 
 		}

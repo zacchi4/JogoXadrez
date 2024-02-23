@@ -6,8 +6,11 @@ import java.util.List;
 import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import xadrez.peca.Bispo;
+import xadrez.peca.Cavalo;
 import xadrez.peca.King;
 import xadrez.peca.Peao;
+import xadrez.peca.Rainha;
 import xadrez.peca.Torre;
 
 public class PartidaXadrez {
@@ -58,9 +61,13 @@ public class PartidaXadrez {
 	private void iniciandoPartida() {
 		// BRANCO
 		colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('h', 8, new Torre(tabuleiro, Color.BLACK));
-
+		colocandoNovaPeca('b', 8, new Cavalo(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('c', 8, new Bispo(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('d', 8, new Rainha(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('e', 8, new King(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('f', 8, new Bispo(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('g', 8, new Cavalo(tabuleiro, Color.BLACK));
+		colocandoNovaPeca('h', 8, new Torre(tabuleiro, Color.BLACK));
 		
 		colocandoNovaPeca('a', 7, new Peao(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('b', 7, new Peao(tabuleiro, Color.BLACK));
@@ -73,9 +80,13 @@ public class PartidaXadrez {
 
 		// PRETO
 		colocandoNovaPeca('a', 1, new Torre(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
-
+		colocandoNovaPeca('b', 1, new Cavalo(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('c', 1, new Bispo(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('d', 1, new Rainha(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('e', 1, new King(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('f', 1, new Bispo(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('g', 1, new Cavalo(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
 		
 		colocandoNovaPeca('a', 2, new Peao(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('b', 2, new Peao(tabuleiro, Color.WHITE));
