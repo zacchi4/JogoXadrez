@@ -31,6 +31,10 @@ public class Posicao {
 		this.coluna = coluna;
 	}
 
+	public void setValor(int lin, int col) {
+		this.linha = lin;
+		this.coluna = col;
+	}
 
 	@Override
 	public String toString() {
