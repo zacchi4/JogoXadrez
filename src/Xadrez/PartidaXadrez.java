@@ -1,10 +1,10 @@
-package Xadrez;
+package xadrez;
 
-import Xadrez.peca.King;
-import Xadrez.peca.Torre;
 import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import xadrez.peca.King;
+import xadrez.peca.Torre;
 
 public class PartidaXadrez {
 	
@@ -60,7 +60,11 @@ public class PartidaXadrez {
 	
 	private void validacaoPosicaoOrigem(Posicao pos) {
 		if(!tabuleiro.temUmaPeca(pos)) {
-			throw new XadrezException("Não temos nenhuma peça nessa posição !");
+			throw new XadrezException("Nao temos nenhuma peca nessa posicao !");
+		}
+		
+		if(!tabuleiro.peca(pos).existeMovimentoPossivel()) {
+			throw new XadrezException("Nao temos nenhum movimento possivel para a peca selecionada !");
 		}
 	}
 	

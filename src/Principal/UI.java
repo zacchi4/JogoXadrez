@@ -3,9 +3,9 @@ package principal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import Xadrez.Color;
-import Xadrez.PecaXadrez;
-import Xadrez.XadrezPosicao;
+import xadrez.Color;
+import xadrez.PecaXadrez;
+import xadrez.XadrezPosicao;
 
 public class UI {
 

@@ -3,10 +3,10 @@ package principal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import Xadrez.PartidaXadrez;
-import Xadrez.PecaXadrez;
-import Xadrez.XadrezException;
-import Xadrez.XadrezPosicao;
+import xadrez.PartidaXadrez;
+import xadrez.PecaXadrez;
+import xadrez.XadrezException;
+import xadrez.XadrezPosicao;
 
 public class Principal {
 
@@ -37,9 +37,7 @@ public class Principal {
 				sc.nextLine();
 			}
 		}
-		
-		
-		
+
 	}
 
 }

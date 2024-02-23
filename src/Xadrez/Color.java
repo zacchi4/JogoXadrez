@@ -1,4 +1,4 @@
-package Xadrez;
+package xadrez;
 
 public enum Color {
 	BLACK,

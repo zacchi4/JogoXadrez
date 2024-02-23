@@ -1,8 +1,8 @@
-package Xadrez.peca;
+package xadrez.peca;
 
 import tabuleiro.Tabuleiro;
-import Xadrez.Color;
-import Xadrez.PecaXadrez;
+import xadrez.Color;
+import xadrez.PecaXadrez;
 
 public class King extends PecaXadrez{
 
@@ -13,6 +13,14 @@ public class King extends PecaXadrez{
 	@Override
 	public String toString() {
 		return "K";
+	}
+
+	@Override
+	public boolean[][] movimentosPossiveis() {
+
+		boolean mat[][] = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
+		
+		return mat;
 	}
 
 }
