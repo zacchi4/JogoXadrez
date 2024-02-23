@@ -6,9 +6,15 @@ import tabuleiro.Tabuleiro;
 import xadrez.peca.King;
 import xadrez.peca.Torre;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PartidaXadrez {
 
 	private Tabuleiro tabuleiro;
+
+	private List<Peca> pecasTabuleiro = new ArrayList<>();
+	private List<Peca> pecasCapturadas = new ArrayList<>();
 
 	private int turno;
 	private Color jogadorAtual;
@@ -45,6 +51,7 @@ public class PartidaXadrez {
 
 	private void colocandoNovaPeca(char col, int lin, PecaXadrez peca) {
 		tabuleiro.colocarPeca(peca, new XadrezPosicao(col, lin).qualPosicao());
+		pecasTabuleiro.add(peca);
 	}
 
 	private void iniciandoPartida() {
@@ -70,7 +77,7 @@ public class PartidaXadrez {
 		validacaoPosicaoDestino(origem, destino);
 
 		Peca pecaCapturada = movendoPeca(origem, destino);
-		
+
 		proximoTurno();
 
 		return (PecaXadrez) pecaCapturada;
@@ -80,7 +87,7 @@ public class PartidaXadrez {
 		if (!tabuleiro.temUmaPeca(pos)) {
 			throw new XadrezException("Nao temos nenhuma peca nessa posicao ! (validacaoPosicaoOrigem)");
 		}
-		
+
 		if (jogadorAtual != ((PecaXadrez) tabuleiro.peca(pos)).getColor()) {
 			throw new XadrezException("Atenção essa peça não é sua ! (validacaoPosicaoOrigem)");
 		}
@@ -101,6 +108,11 @@ public class PartidaXadrez {
 		Peca p = tabuleiro.removePeca(ori);
 		Peca cap = tabuleiro.removePeca(des);
 
+		if(cap != null) {
+			pecasCapturadas.add(cap);
+			pecasTabuleiro.remove(cap);
+		}
+		
 		tabuleiro.colocarPeca(p, des);
 		return cap;
 	}
@@ -113,7 +125,7 @@ public class PartidaXadrez {
 
 	private void proximoTurno() {
 		turno++;
-		jogadorAtual = (jogadorAtual == Color.WHITE) ? Color.BLACK:Color.WHITE;
+		jogadorAtual = (jogadorAtual == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 
 }

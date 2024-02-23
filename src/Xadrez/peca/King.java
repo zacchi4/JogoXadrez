@@ -20,7 +20,7 @@ public class King extends PecaXadrez {
 
 		PecaXadrez pec = (PecaXadrez) getTabuleiro().peca(pos);
 
-		return pec != null && pec.getColor() != getColor();
+		return pec == null || pec.getColor() != getColor();
 	}
 
 	@Override
