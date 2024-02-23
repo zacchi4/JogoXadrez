@@ -23,6 +23,7 @@ public class PartidaXadrez {
 	private int turno;
 	private Color jogadorAtual;
 	private boolean check;
+	private boolean checkMate;
 
 	public PartidaXadrez() {
 		tabuleiro = new Tabuleiro(8, 8);
@@ -39,6 +40,10 @@ public class PartidaXadrez {
 
 	public Color getJogadorAtual() {
 		return jogadorAtual;
+	}
+
+	public boolean isCheckMate() {
+		return checkMate;
 	}
 
 	public boolean isCheck() {
@@ -64,51 +69,51 @@ public class PartidaXadrez {
 	}
 
 	private void iniciandoPartida() {
-		/* TESTE * /
-		colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('a', 1, new Torre(tabuleiro, Color.WHITE));
+		/* TESTE */
+		colocandoNovaPeca('h', 7, new Torre(tabuleiro, Color.WHITE));
+		colocandoNovaPeca('d', 1, new Torre(tabuleiro, Color.WHITE));
 		colocandoNovaPeca('e', 1, new King(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('e', 8, new King(tabuleiro, Color.BLACK));
-		*/
-		
-		// BRANCO
+
+		colocandoNovaPeca('b', 8, new King(tabuleiro, Color.BLACK));
 		colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('b', 8, new Cavalo(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('c', 8, new Bispo(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('d', 8, new Rainha(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('e', 8, new King(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('f', 8, new Bispo(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('g', 8, new Cavalo(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('h', 8, new Torre(tabuleiro, Color.BLACK));
 
-		colocandoNovaPeca('a', 7, new Peao(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('b', 7, new Peao(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('c', 7, new Peao(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('d', 7, new Peao(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('e', 7, new Peao(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('f', 7, new Peao(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('g', 7, new Peao(tabuleiro, Color.BLACK));
-		colocandoNovaPeca('h', 7, new Peao(tabuleiro, Color.BLACK));
-
-		// PRETO
-		colocandoNovaPeca('a', 1, new Torre(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('b', 1, new Cavalo(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('c', 1, new Bispo(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('d', 1, new Rainha(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('e', 1, new King(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('f', 1, new Bispo(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('g', 1, new Cavalo(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
-
-		colocandoNovaPeca('a', 2, new Peao(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('b', 2, new Peao(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('c', 2, new Peao(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('d', 2, new Peao(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('e', 2, new Peao(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('f', 2, new Peao(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('g', 2, new Peao(tabuleiro, Color.WHITE));
-		colocandoNovaPeca('h', 2, new Peao(tabuleiro, Color.WHITE));
-		
+		/*
+		 * // BRANCO colocandoNovaPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('b', 8, new Cavalo(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('c', 8, new Bispo(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('d', 8, new Rainha(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('e', 8, new King(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('f', 8, new Bispo(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('g', 8, new Cavalo(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('h', 8, new Torre(tabuleiro, Color.BLACK));
+		 * 
+		 * colocandoNovaPeca('a', 7, new Peao(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('b', 7, new Peao(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('c', 7, new Peao(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('d', 7, new Peao(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('e', 7, new Peao(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('f', 7, new Peao(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('g', 7, new Peao(tabuleiro, Color.BLACK));
+		 * colocandoNovaPeca('h', 7, new Peao(tabuleiro, Color.BLACK));
+		 * 
+		 * // PRETO colocandoNovaPeca('a', 1, new Torre(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('b', 1, new Cavalo(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('c', 1, new Bispo(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('d', 1, new Rainha(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('e', 1, new King(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('f', 1, new Bispo(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('g', 1, new Cavalo(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
+		 * 
+		 * colocandoNovaPeca('a', 2, new Peao(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('b', 2, new Peao(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('c', 2, new Peao(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('d', 2, new Peao(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('e', 2, new Peao(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('f', 2, new Peao(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('g', 2, new Peao(tabuleiro, Color.WHITE));
+		 * colocandoNovaPeca('h', 2, new Peao(tabuleiro, Color.WHITE));
+		 */
 	}
 
 	public PecaXadrez movendoPeca(XadrezPosicao posOri, XadrezPosicao posDes) {
@@ -119,16 +124,20 @@ public class PartidaXadrez {
 		validacaoPosicaoDestino(origem, destino);
 
 		Peca pecaCapturada = movendoPeca(origem, destino);
-		
-		if(testeCheck(jogadorAtual)) {
+
+		if (testeCheck(jogadorAtual)) {
 			desfazerMovimento(origem, destino, pecaCapturada);
 			throw new XadrezException("Voce nao pode se colocar em Check !");
 		}
+
+		check = (testeCheck(oponente(jogadorAtual))) ? true : false;
+
+		if (testeCheckMate(oponente(jogadorAtual))) {
+			checkMate = true;
+		} else {
+			proximoTurno();
+		}
 		
-		check = (testeCheck(oponente(jogadorAtual)))?true:false;
-
-		proximoTurno();
-
 		return (PecaXadrez) pecaCapturada;
 	}
 
@@ -212,6 +221,36 @@ public class PartidaXadrez {
 		}
 
 		return false;
+	}
+
+	private boolean testeCheckMate(Color cor) {
+
+		if (!testeCheck(cor)) {
+			return false;
+		}
+
+		List<Peca> minhasPecas = pecasTabuleiro.stream().filter(x -> ((PecaXadrez) x).getColor() == cor).toList();
+
+		for (Peca p : minhasPecas) {
+			boolean[][] mat = p.movimentosPossiveis();
+
+			for (int i = 0; i < tabuleiro.getLinhas(); i++) {
+				for (int j = 0; j < tabuleiro.getColunas(); j++) {
+					if (mat[i][j]) {
+						Posicao origem = ((PecaXadrez) p).getXadrezPosicao().qualPosicao();
+						Posicao destino = new Posicao(i, j);
+						Peca pecaCapturada = movendoPeca(origem, destino);
+						boolean testCheck = testeCheck(cor);
+						desfazerMovimento(origem, destino, pecaCapturada);
+						if (!testCheck) {
+							return false;
+						}
+					}
+				}
+			}
+		}
+
+		return true;
 	}
 
 	private void proximoTurno() {

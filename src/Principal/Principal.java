@@ -20,7 +20,7 @@ public class Principal {
 		
 		List<PecaXadrez> capturadas = new ArrayList<>();
 
-		while(true) {
+		while(!partida.isCheckMate()) {
 			try {
 				UI.limpandoTela();
 				UI.imprimindoPatida(partida, capturadas);
@@ -49,6 +49,9 @@ public class Principal {
 				sc.nextLine();
 			}
 		}
+		
+		UI.limpandoTela();
+		UI.imprimindoPatida(partida, capturadas);
 
 		
 	}
