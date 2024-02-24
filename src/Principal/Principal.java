@@ -41,6 +41,12 @@ public class Principal {
 				if(cap != null) {
 					capturadas.add(cap);
 				}
+				
+				if(partida.getPromoted() != null) {
+					System.out.print("Entre com a peca promovida (C {cavalo}, Q {rainha}, T {torre}, B {bispo}): ");
+					String tipo = sc.nextLine();
+					partida.trocandoPecaPromovida(tipo);
+				}
 			}catch(XadrezException xe) {
 				System.out.println(xe.getMessage());
 				sc.nextLine();
