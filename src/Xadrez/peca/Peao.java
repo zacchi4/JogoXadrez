@@ -3,12 +3,16 @@ package xadrez.peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 import xadrez.Color;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 
 public class Peao extends PecaXadrez {
+	
+	private PartidaXadrez partidaX;
 
-	public Peao(Tabuleiro tabuleiro, Color color) {
+	public Peao(Tabuleiro tabuleiro, Color color, PartidaXadrez partida) {
 		super(tabuleiro, color);
+		partidaX = partida;
 	}
 
 	private boolean podeMoverDiagonal(Posicao pos) {
@@ -64,6 +68,19 @@ public class Peao extends PecaXadrez {
 				}
 			}
 			
+			//enPassant
+			if((posicao.getLinha() == 3)){
+				Posicao esquerda = new Posicao(posicao.getLinha(), posicao.getColuna() - 1);
+				if((getTabuleiro().existePosicao(esquerda))&&(getTabuleiro().peca(esquerda) == partidaX.getEnPassantVulneravel())) {
+					mat[esquerda.getLinha() - 1][esquerda.getColuna()]  =  true;
+				}
+				
+				Posicao direita = new Posicao(posicao.getLinha(), posicao.getColuna() + 1);
+				if((getTabuleiro().existePosicao(direita))&&(getTabuleiro().peca(direita) == partidaX.getEnPassantVulneravel())) {
+					mat[direita.getLinha() - 1][direita.getColuna()]  =  true;
+				}
+			}
+			
 		} else {
 			
 			// ABAIXO
@@ -95,6 +112,19 @@ public class Peao extends PecaXadrez {
 					mat[p.getLinha()][p.getColuna()] = true;
 				}
 				
+			}
+			
+			//enPassant
+			if((posicao.getLinha() == 4)){
+				Posicao esquerda = new Posicao(posicao.getLinha(), posicao.getColuna() - 1);
+				if((getTabuleiro().existePosicao(esquerda))&&(getTabuleiro().peca(esquerda) == partidaX.getEnPassantVulneravel())) {
+					mat[esquerda.getLinha() + 1][esquerda.getColuna()]  =  true;
+				}
+				
+				Posicao direita = new Posicao(posicao.getLinha(), posicao.getColuna() + 1);
+				if((getTabuleiro().existePosicao(direita))&&(getTabuleiro().peca(direita) == partidaX.getEnPassantVulneravel())) {
+					mat[direita.getLinha() + 1][direita.getColuna()]  =  true;
+				}
 			}
 
 		}
