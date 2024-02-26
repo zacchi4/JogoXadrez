@@ -44,7 +44,13 @@ public class Principal {
 				
 				if(partida.getPromoted() != null) {
 					System.out.print("Entre com a peca promovida (C {cavalo}, Q {rainha}, T {torre}, B {bispo}): ");
-					String tipo = sc.nextLine();
+					String tipo = sc.nextLine().toUpperCase();
+					
+					while(!tipo.equals("B") &&  !tipo.equals("T") &&  !tipo.equals("C") && !tipo.equals("Q")) {						
+						System.out.println("Atenção, valor inválido, digite novamente!");						
+						tipo = sc.nextLine().toUpperCase();
+					}
+					
 					partida.trocandoPecaPromovida(tipo);
 				}
 			}catch(XadrezException xe) {
