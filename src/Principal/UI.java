@@ -1,4 +1,4 @@
-package principal;
+package Principal;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import xadrez.Color;
-import xadrez.PartidaXadrez;
-import xadrez.PecaXadrez;
-import xadrez.XadrezPosicao;
+import Xadrez.Color;
+import Xadrez.PartidaXadrez;
+import Xadrez.PecaXadrez;
+import Xadrez.XadrezPosicao;
 
 public class UI {
 

@@ -1,18 +1,17 @@
-package xadrez;
+package Xadrez;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
-import tabuleiro.Peca;
-import tabuleiro.Posicao;
-import tabuleiro.Tabuleiro;
-import xadrez.peca.Bispo;
-import xadrez.peca.Cavalo;
-import xadrez.peca.King;
-import xadrez.peca.Peao;
-import xadrez.peca.Rainha;
-import xadrez.peca.Torre;
+import Tabuleiro.Peca;
+import Tabuleiro.Posicao;
+import Tabuleiro.Tabuleiro;
+import Xadrez.peca.Bispo;
+import Xadrez.peca.Cavalo;
+import Xadrez.peca.King;
+import Xadrez.peca.Peao;
+import Xadrez.peca.Rainha;
+import Xadrez.peca.Torre;
 
 public class PartidaXadrez {
 

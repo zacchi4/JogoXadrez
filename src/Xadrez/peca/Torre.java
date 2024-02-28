@@ -1,9 +1,9 @@
-package xadrez.peca;
+package Xadrez.peca;
 
-import tabuleiro.Posicao;
-import tabuleiro.Tabuleiro;
-import xadrez.Color;
-import xadrez.PecaXadrez;
+import Tabuleiro.Posicao;
+import Tabuleiro.Tabuleiro;
+import Xadrez.Color;
+import Xadrez.PecaXadrez;
 
 public class Torre extends PecaXadrez {
 

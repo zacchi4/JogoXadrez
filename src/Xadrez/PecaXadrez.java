@@ -1,8 +1,8 @@
-package xadrez;
+package Xadrez;
 
-import tabuleiro.Peca;
-import tabuleiro.Posicao;
-import tabuleiro.Tabuleiro;
+import Tabuleiro.Peca;
+import Tabuleiro.Posicao;
+import Tabuleiro.Tabuleiro;
 
 public abstract class PecaXadrez extends Peca{
 	

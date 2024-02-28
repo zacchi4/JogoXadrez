@@ -1,14 +1,14 @@
-package principal;
+package Principal;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import xadrez.PartidaXadrez;
-import xadrez.PecaXadrez;
-import xadrez.XadrezException;
-import xadrez.XadrezPosicao;
+import Xadrez.PartidaXadrez;
+import Xadrez.PecaXadrez;
+import Xadrez.XadrezException;
+import Xadrez.XadrezPosicao;
 
 public class Principal {
 
