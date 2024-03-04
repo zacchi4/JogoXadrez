@@ -53,11 +53,8 @@ public class Principal {
 					
 					partida.trocandoPecaPromovida(tipo);
 				}
-			}catch(XadrezException xe) {
+			}catch(XadrezException | InputMismatchException xe) {
 				System.out.println(xe.getMessage());
-				sc.nextLine();
-			}catch(InputMismatchException ie) {
-				System.out.println(ie.getMessage());
 				sc.nextLine();
 			}
 		}

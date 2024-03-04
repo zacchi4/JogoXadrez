@@ -15,7 +15,7 @@ import Xadrez.peca.Torre;
 
 public class PartidaXadrez {
 
-	private Tabuleiro tabuleiro;
+	private final Tabuleiro tabuleiro;
 
 	private List<Peca> pecasTabuleiro = new ArrayList<>();
 	private List<Peca> pecasCapturadas = new ArrayList<>();
