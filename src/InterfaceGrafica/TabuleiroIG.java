@@ -1,6 +1,5 @@
 package InterfaceGrafica;
 
-
 import Xadrez.Color;
 import Xadrez.PartidaXadrez;
 import Xadrez.PecaXadrez;
@@ -12,6 +11,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -187,46 +188,80 @@ public class TabuleiroIG extends javax.swing.JFrame {
         int preta = 37;
         for (PecaXadrez pecaBraca : brancas) {
             switch (branca) {
-                case 17 -> jLabel17.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 18 -> jLabel18.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 19 -> jLabel19.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 20 -> jLabel20.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 21 -> jLabel21.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 22 -> jLabel22.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 23 -> jLabel23.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 24 -> jLabel24.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 25 -> jLabel25.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 26 -> jLabel26.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 27 -> jLabel27.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 28 -> jLabel28.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 29 -> jLabel29.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 30 -> jLabel30.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 31 -> jLabel31.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                case 32 -> jLabel32.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
-                default -> throw new AssertionError();
+                case 17 ->
+                    jLabel17.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 18 ->
+                    jLabel18.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 19 ->
+                    jLabel19.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 20 ->
+                    jLabel20.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 21 ->
+                    jLabel21.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 22 ->
+                    jLabel22.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 23 ->
+                    jLabel23.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 24 ->
+                    jLabel24.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 25 ->
+                    jLabel25.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 26 ->
+                    jLabel26.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 27 ->
+                    jLabel27.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 28 ->
+                    jLabel28.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 29 ->
+                    jLabel29.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 30 ->
+                    jLabel30.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 31 ->
+                    jLabel31.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                case 32 ->
+                    jLabel32.setIcon(criandoImagemLabelsCapturadas(pecaBraca.toString().toLowerCase() + "B"));
+                default ->
+                    throw new AssertionError();
             }
             branca++;
         }
         
-        for(PecaXadrez pecaPreta : pretas){
+        for (PecaXadrez pecaPreta : pretas) {
             switch (preta) {
-                case 37 -> jLabelP1.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 38 -> jLabelP2.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 39 -> jLabelP3.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 40 -> jLabelP4.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 41 -> jLabelP5.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 42 -> jLabelP6.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 43 -> jLabelP7.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 44 -> jLabelP8.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 45 -> jLabelP9.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 46 -> jLabelP10.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 47 -> jLabelP11.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 48 -> jLabelP11.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 49 -> jLabelP13.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 50 -> jLabelP14.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 51 -> jLabelP15.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                case 52 -> jLabelP16.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
-                default -> throw new AssertionError();
+                case 37 ->
+                    jLabelP1.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 38 ->
+                    jLabelP2.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 39 ->
+                    jLabelP3.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 40 ->
+                    jLabelP4.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 41 ->
+                    jLabelP5.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 42 ->
+                    jLabelP6.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 43 ->
+                    jLabelP7.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 44 ->
+                    jLabelP8.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 45 ->
+                    jLabelP9.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 46 ->
+                    jLabelP10.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 47 ->
+                    jLabelP11.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 48 ->
+                    jLabelP11.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 49 ->
+                    jLabelP13.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 50 ->
+                    jLabelP14.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 51 ->
+                    jLabelP15.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                case 52 ->
+                    jLabelP16.setIcon(criandoImagemLabelsCapturadas(pecaPreta.toString().toLowerCase() + "P"));
+                default ->
+                    throw new AssertionError();
             }
             preta++;
         }
@@ -1079,7 +1114,7 @@ public class TabuleiroIG extends javax.swing.JFrame {
         
         imprimirTabuleiro(partida.getPecas());
         imprimirPecasCapturadas(caps);
-
+        
         jLabelMensagem1.setText("Turno: " + partida.getTurno());
         
         if (!partida.isCheckMate()) {
@@ -1835,7 +1870,7 @@ public class TabuleiroIG extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        btnSair.setText("Sair");
+        btnSair.setText("Voltar");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -3032,7 +3067,15 @@ public class TabuleiroIG extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.setVisible(false);
-        System.exit(0);
+        MenuPrincipal menu = null;
+        try {
+            menu = new MenuPrincipal();
+        } catch (IOException ex) {
+            Logger.getLogger(TabuleiroIG.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TabuleiroIG.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        menu.setVisible(true);
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void jButtonA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonA2ActionPerformed

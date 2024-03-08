@@ -26,6 +26,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        btnTerminal.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -37,9 +38,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnIG = new javax.swing.JButton();
         btnTerminal = new javax.swing.JButton();
         btnSobre = new javax.swing.JButton();
+        btnJogoVelha = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CAFÉ COM XADREZ");
+        setTitle("JOGOS DE TABULEIRO");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Entrada.jpg"))); // NOI18N
@@ -53,7 +55,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnIG.setText("Xadrez Interface");
+        btnIG.setText("Xadrez ");
         btnIG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIGActionPerformed(evt);
@@ -74,6 +76,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnJogoVelha.setText("Jogo da Velha");
+        btnJogoVelha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJogoVelhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,7 +95,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(btnTerminal, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                     .addComponent(btnIG, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                     .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSobre, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+                    .addComponent(btnSobre, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                    .addComponent(btnJogoVelha, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,8 +107,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnIG)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnTerminal)
+                        .addComponent(btnJogoVelha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTerminal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSobre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSair))
@@ -126,6 +138,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tab.setVisible(true);
 
     }//GEN-LAST:event_btnIGActionPerformed
+
+    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
+        Sobre sobre = new Sobre();
+        sobre.setVisible(true);
+    }//GEN-LAST:event_btnSobreActionPerformed
 
     private void btnTerminalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminalActionPerformed
 
@@ -174,14 +191,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         UI.imprimindoPatida(partida, capturadas);
     }//GEN-LAST:event_btnTerminalActionPerformed
 
-    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
-        Sobre sobre = new Sobre();
-        sobre.setVisible(true);
-    }//GEN-LAST:event_btnSobreActionPerformed
+    private void btnJogoVelhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJogoVelhaActionPerformed
+        JogoDaVelha jogoVelha = new JogoDaVelha();
+        this.setVisible(false);
+        jogoVelha.setVisible(true);
+    }//GEN-LAST:event_btnJogoVelhaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIG;
+    private javax.swing.JButton btnJogoVelha;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSobre;
     private javax.swing.JButton btnTerminal;
