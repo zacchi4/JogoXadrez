@@ -53,7 +53,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnIG.setText("Xadres Interface");
+        btnIG.setText("Xadrez Interface");
         btnIG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIGActionPerformed(evt);
@@ -176,7 +176,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
         Sobre sobre = new Sobre();
-        this.setVisible(false);
         sobre.setVisible(true);
     }//GEN-LAST:event_btnSobreActionPerformed
 

@@ -29,6 +29,8 @@ public class Sobre extends javax.swing.JFrame {
 
         jTextPane1.setEditable(false);
         jTextPane1.setText("Bem-vindo ao Jogo de Xadrez JAVA por Mauricio Vieira Zacchi\n\nExplore o fascinante mundo do xadrez com esta experiência envolvente e estratégica, desenvolvida com maestria por Mauricio Vieira Zacchi. Este jogo representa a fusão perfeita entre a tradição do xadrez e a modernidade da programação JAVA.\n\nSobre o Desenvolvedor:\nMauricio Vieira Zacchi é um apaixonado desenvolvedor de software, especializado na criação de experiências interativas e funcionais. Com um profundo amor pelo xadrez e habilidades excepcionais em programação JAVA, Mauricio trouxe à vida este jogo que desafia mentes e encanta jogadores de todas as idades.\n\nO jogo de xadrez JAVA foi desenvolvido por Mauricio Vieira Zacchi para uma experiênciada linguagem.\n\nPara feedback, suporte ou mais informações, entre em contato com Mauricio Vieira Zacchi através dos seguintes canais:  \n\n* https://www.instagram.com/zacchi4/\n* https://www.linkedin.com/in/mauricio-zacchi/\n* https://github.com/zacchi4\n* zacchi4@hotmail.com\n\n");
+        jTextPane1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextPane1.setEnabled(false);
         jScrollPane1.setViewportView(jTextPane1);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/desenvolvedor.jpg"))); // NOI18N
@@ -96,7 +98,6 @@ public class Sobre extends javax.swing.JFrame {
         } catch (URISyntaxException ex) {
             Logger.getLogger(Sobre.class.getName()).log(Level.SEVERE, null, ex);
         }
-        menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

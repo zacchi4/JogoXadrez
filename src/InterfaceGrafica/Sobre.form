@@ -90,6 +90,10 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="text" type="java.lang.String" value="Bem-vindo ao Jogo de Xadrez JAVA por Mauricio Vieira Zacchi&#xa;&#xa;Explore o fascinante mundo do xadrez com esta experi&#xea;ncia envolvente e estrat&#xe9;gica, desenvolvida com maestria por Mauricio Vieira Zacchi. Este jogo representa a fus&#xe3;o perfeita entre a tradi&#xe7;&#xe3;o do xadrez e a modernidade da programa&#xe7;&#xe3;o JAVA.&#xa;&#xa;Sobre o Desenvolvedor:&#xa;Mauricio Vieira Zacchi &#xe9; um apaixonado desenvolvedor de software, especializado na cria&#xe7;&#xe3;o de experi&#xea;ncias interativas e funcionais. Com um profundo amor pelo xadrez e habilidades excepcionais em programa&#xe7;&#xe3;o JAVA, Mauricio trouxe &#xe0; vida este jogo que desafia mentes e encanta jogadores de todas as idades.&#xa;&#xa;O jogo de xadrez JAVA foi desenvolvido por Mauricio Vieira Zacchi para uma experi&#xea;nciada linguagem.&#xa;&#xa;Para feedback, suporte ou mais informa&#xe7;&#xf5;es, entre em contato com Mauricio Vieira Zacchi atrav&#xe9;s dos seguintes canais:  &#xa;&#xa;* https://www.instagram.com/zacchi4/&#xa;* https://www.linkedin.com/in/mauricio-zacchi/&#xa;* https://github.com/zacchi4&#xa;* zacchi4@hotmail.com&#xa;&#xa;"/>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>

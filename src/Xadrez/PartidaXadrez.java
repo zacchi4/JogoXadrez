@@ -131,10 +131,16 @@ public class PartidaXadrez {
         Posicao origem = posOri.qualPosicao();
         Posicao destino = posDes.qualPosicao();
 
+        boolean testeJogador = true;
+
         podeIG = validacaoPosicaoOrigem(origem);
 
         if (podeIG) {
-            validacaoPosicaoDestino(origem, destino);
+            testeJogador = validacaoPosicaoDestino(origem, destino);
+
+            if (!testeJogador) {
+                return null;
+            }
 
             Peca pecaCapturada = movendoPeca(origem, destino);
 
@@ -175,6 +181,7 @@ public class PartidaXadrez {
             System.out.println(enPassantVulneravel);
 
             return (PecaXadrez) pecaCapturada;
+
         }
 
         return null;
@@ -238,10 +245,13 @@ public class PartidaXadrez {
         return true;
     }
 
-    private void validacaoPosicaoDestino(Posicao ori, Posicao des) {
+    private boolean validacaoPosicaoDestino(Posicao ori, Posicao des) {
         if (!tabuleiro.peca(ori).movimentoPosivel(des)) {
             JOptionPane.showMessageDialog(null, "Peca escolhida nao pode se mover para o destino ! (validacaoPosicaoDestino)");
+            return false;
         }
+
+        return true;
     }
 
     private Peca movendoPeca(Posicao ori, Posicao des) {
@@ -362,7 +372,7 @@ public class PartidaXadrez {
         }
 
         JOptionPane.showMessageDialog(null, "Não existe rei" + (cor == Color.WHITE ? " BRANCO" : " PRETO") + " !!!");
-		return null;
+        return null;
     }
 
     private boolean testeCheck(Color cor) {
