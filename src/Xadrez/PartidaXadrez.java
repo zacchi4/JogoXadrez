@@ -141,6 +141,7 @@ public class PartidaXadrez {
             if (testeCheck(jogadorAtual)) {
                 desfazerMovimento(origem, destino, pecaCapturada);
                 JOptionPane.showMessageDialog(null, "Voce nao pode se colocar em Check !");
+                return null;
             }
 
             PecaXadrez pecaMov = (PecaXadrez) tabuleiro.peca(destino);
