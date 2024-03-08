@@ -8,7 +8,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -26,6 +29,8 @@ public class TabuleiroIG extends javax.swing.JFrame {
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
     private XadrezPosicao origem;
     private PartidaXadrez partida;
+
+    List<PecaXadrez> capturadas = new ArrayList<>();
 
     private boolean jogadas = true;
     private boolean jogou = false;
@@ -91,7 +96,8 @@ public class TabuleiroIG extends javax.swing.JFrame {
                 img = new ImageIcon(bImg.getScaledInstance(65, 65, Image.SCALE_SMOOTH));
             }
             default -> {
-                img = null;
+                bImg = ImageIO.read(new File("C:\\Users\\zacch\\Documents\\workspaces\\java-curso\\JogoXadrez\\images\\zerando_vetor.png"));
+                img = new ImageIcon(bImg.getScaledInstance(65, 65, Image.SCALE_SMOOTH));
             }
         }
 
@@ -101,28 +107,49 @@ public class TabuleiroIG extends javax.swing.JFrame {
     private String retornandoPosicaoXadrez(int lin, int col) {
         String retorno;
 
-        switch (lin) {
+        switch (col) {
+            case 0 ->
+                retorno = "8";
             case 1 ->
-                retorno = "A";
+                retorno = "7";
             case 2 ->
-                retorno = "B";
+                retorno = "6";
             case 3 ->
-                retorno = "C";
+                retorno = "5";
             case 4 ->
-                retorno = "D";
+                retorno = "4";
             case 5 ->
-                retorno = "E";
+                retorno = "3";
             case 6 ->
-                retorno = "F";
+                retorno = "2";
             case 7 ->
-                retorno = "G";
-            case 8 ->
-                retorno = "H";
+                retorno = "1";
             default ->
                 retorno = "";
         }
 
-        return retorno + String.valueOf(col);
+        switch (lin) {
+            case 0 ->
+                retorno = "A" + retorno;
+            case 1 ->
+                retorno = "B" + retorno;
+            case 2 ->
+                retorno = "C" + retorno;
+            case 3 ->
+                retorno = "D" + retorno;
+            case 4 ->
+                retorno = "E" + retorno;
+            case 5 ->
+                retorno = "F" + retorno;
+            case 6 ->
+                retorno = "G" + retorno;
+            case 7 ->
+                retorno = "H" + retorno;
+            default ->
+                retorno += "";
+        }
+
+        return retorno;
     }
 
     private String retornandoPosicaoTabuleiro(int lin, String col) {
@@ -517,11 +544,88 @@ public class TabuleiroIG extends javax.swing.JFrame {
         jButtonH8.setBackground(java.awt.Color.white);
     }
 
+    private void voltandoIconButtons() {
+        try {
+            jButtonA1.setIcon(this.criandoImagem("Z"));
+            jButtonA2.setIcon(this.criandoImagem("Z"));
+            jButtonA3.setIcon(this.criandoImagem("Z"));
+            jButtonA4.setIcon(this.criandoImagem("Z"));
+            jButtonA5.setIcon(this.criandoImagem("Z"));
+            jButtonA6.setIcon(this.criandoImagem("Z"));
+            jButtonA7.setIcon(this.criandoImagem("Z"));
+            jButtonA8.setIcon(this.criandoImagem("Z"));
+
+            jButtonB1.setIcon(this.criandoImagem("Z"));
+            jButtonB2.setIcon(this.criandoImagem("Z"));
+            jButtonB3.setIcon(this.criandoImagem("Z"));
+            jButtonB4.setIcon(this.criandoImagem("Z"));
+            jButtonB5.setIcon(this.criandoImagem("Z"));
+            jButtonB6.setIcon(this.criandoImagem("Z"));
+            jButtonB7.setIcon(this.criandoImagem("Z"));
+            jButtonB8.setIcon(this.criandoImagem("Z"));
+
+            jButtonC1.setIcon(this.criandoImagem("Z"));
+            jButtonC2.setIcon(this.criandoImagem("Z"));
+            jButtonC3.setIcon(this.criandoImagem("Z"));
+            jButtonC4.setIcon(this.criandoImagem("Z"));
+            jButtonC5.setIcon(this.criandoImagem("Z"));
+            jButtonC6.setIcon(this.criandoImagem("Z"));
+            jButtonC7.setIcon(this.criandoImagem("Z"));
+            jButtonC8.setIcon(this.criandoImagem("Z"));
+
+            jButtonD1.setIcon(this.criandoImagem("Z"));
+            jButtonD2.setIcon(this.criandoImagem("Z"));
+            jButtonD3.setIcon(this.criandoImagem("Z"));
+            jButtonD4.setIcon(this.criandoImagem("Z"));
+            jButtonD5.setIcon(this.criandoImagem("Z"));
+            jButtonD6.setIcon(this.criandoImagem("Z"));
+            jButtonD7.setIcon(this.criandoImagem("Z"));
+            jButtonD8.setIcon(this.criandoImagem("Z"));
+
+            jButtonE1.setIcon(this.criandoImagem("Z"));
+            jButtonE2.setIcon(this.criandoImagem("Z"));
+            jButtonE3.setIcon(this.criandoImagem("Z"));
+            jButtonE4.setIcon(this.criandoImagem("Z"));
+            jButtonE5.setIcon(this.criandoImagem("Z"));
+            jButtonE6.setIcon(this.criandoImagem("Z"));
+            jButtonE7.setIcon(this.criandoImagem("Z"));
+            jButtonE8.setIcon(this.criandoImagem("Z"));
+
+            jButtonF1.setIcon(this.criandoImagem("Z"));
+            jButtonF2.setIcon(this.criandoImagem("Z"));
+            jButtonF3.setIcon(this.criandoImagem("Z"));
+            jButtonF4.setIcon(this.criandoImagem("Z"));
+            jButtonF5.setIcon(this.criandoImagem("Z"));
+            jButtonF6.setIcon(this.criandoImagem("Z"));
+            jButtonF7.setIcon(this.criandoImagem("Z"));
+            jButtonF8.setIcon(this.criandoImagem("Z"));
+
+            jButtonG1.setIcon(this.criandoImagem("Z"));
+            jButtonG2.setIcon(this.criandoImagem("Z"));
+            jButtonG3.setIcon(this.criandoImagem("Z"));
+            jButtonG4.setIcon(this.criandoImagem("Z"));
+            jButtonG5.setIcon(this.criandoImagem("Z"));
+            jButtonG6.setIcon(this.criandoImagem("Z"));
+            jButtonG7.setIcon(this.criandoImagem("Z"));
+            jButtonG8.setIcon(this.criandoImagem("Z"));
+
+            jButtonH1.setIcon(this.criandoImagem("Z"));
+            jButtonH2.setIcon(this.criandoImagem("Z"));
+            jButtonH3.setIcon(this.criandoImagem("Z"));
+            jButtonH4.setIcon(this.criandoImagem("Z"));
+            jButtonH5.setIcon(this.criandoImagem("Z"));
+            jButtonH6.setIcon(this.criandoImagem("Z"));
+            jButtonH7.setIcon(this.criandoImagem("Z"));
+            jButtonH8.setIcon(this.criandoImagem("Z"));
+        } catch (IOException ex) {
+            Logger.getLogger(TabuleiroIG.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     private void setandoBackBotao(String posicao) {
 
         posicao = posicao.toUpperCase();
-
-        System.out.println(posicao);
 
         switch (posicao) {
             case "A1" -> {
@@ -743,7 +847,7 @@ public class TabuleiroIG extends javax.swing.JFrame {
     private void imprirPeca(PecaXadrez peca, boolean background, int i, int j) {
 
         if (background) {
-            setandoBackBotao(retornandoPosicaoXadrez(j + 1, i - 1).toUpperCase());
+            setandoBackBotao(retornandoPosicaoXadrez(j , i ).toUpperCase());
         }
 
         if (peca != null) {
@@ -906,6 +1010,11 @@ public class TabuleiroIG extends javax.swing.JFrame {
         setResizable(false);
 
         jButtonA8.setToolTipText("");
+        jButtonA8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonA8MouseClicked(evt);
+            }
+        });
 
         jButtonB8.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -936,8 +1045,18 @@ public class TabuleiroIG extends javax.swing.JFrame {
         jButtonB7.setToolTipText("");
 
         jButtonA7.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonA7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonA7MouseClicked(evt);
+            }
+        });
 
         jButtonA6.setToolTipText("");
+        jButtonA6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonA6MouseClicked(evt);
+            }
+        });
 
         jButtonB6.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -968,10 +1087,20 @@ public class TabuleiroIG extends javax.swing.JFrame {
         jButtonB5.setToolTipText("");
 
         jButtonA5.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonA5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonA5MouseClicked(evt);
+            }
+        });
 
         jButtonH4.setBackground(new java.awt.Color(204, 204, 204));
 
         jButtonA4.setToolTipText("");
+        jButtonA4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonA4MouseClicked(evt);
+            }
+        });
 
         jButtonG3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -1450,7 +1579,7 @@ public class TabuleiroIG extends javax.swing.JFrame {
             boolean[][] movimentosPossiveis = partida.movimentosPossiveis(origem);
             imprimirTabuleiro(partida.getPecas(), movimentosPossiveis);
             jogadas = false;
-        }else{
+        } else {
             this.movendoPeca(pos);
         }
     }
@@ -1461,6 +1590,24 @@ public class TabuleiroIG extends javax.swing.JFrame {
             PecaXadrez cap = partida.movendoPeca(origem, destino);
             jogadas = true;
             this.voltandoBackground();
+
+            if (cap != null) {
+                capturadas.add(cap);
+            }
+
+            if (partida.getPromoted() != null) {
+
+                String tipo = JOptionPane.showInputDialog("Entre com a peca promovida (C {cavalo}, Q {rainha}, T {torre}, B {bispo}): ");
+
+                while (!tipo.equals("B") && !tipo.equals("T") && !tipo.equals("C") && !tipo.equals("Q")) {
+                    tipo = JOptionPane.showInputDialog("Atenção, valor inválido, digite novamente!");
+                }
+
+                partida.trocandoPecaPromovida(tipo);
+            }
+
+            this.voltandoIconButtons();
+            this.imprimirTabuleiro(partida.getPecas());
         }
     }
 
@@ -1473,8 +1620,28 @@ public class TabuleiroIG extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonA2MouseClicked
 
     private void jButtonA3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonA3MouseClicked
-       this.verificandoJogadas("a3");
+        this.verificandoJogadas("a3");
     }//GEN-LAST:event_jButtonA3MouseClicked
+
+    private void jButtonA4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonA4MouseClicked
+        this.verificandoJogadas("a4");
+    }//GEN-LAST:event_jButtonA4MouseClicked
+
+    private void jButtonA5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonA5MouseClicked
+        this.verificandoJogadas("a5");
+    }//GEN-LAST:event_jButtonA5MouseClicked
+
+    private void jButtonA6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonA6MouseClicked
+        this.verificandoJogadas("a6");
+    }//GEN-LAST:event_jButtonA6MouseClicked
+
+    private void jButtonA7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonA7MouseClicked
+        this.verificandoJogadas("a7");
+    }//GEN-LAST:event_jButtonA7MouseClicked
+
+    private void jButtonA8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonA8MouseClicked
+        this.verificandoJogadas("a8");
+    }//GEN-LAST:event_jButtonA8MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

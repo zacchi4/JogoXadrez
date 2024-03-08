@@ -388,6 +388,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonA8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonB8">
       <Properties>
@@ -479,11 +482,17 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonA7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonA6">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonA6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonB6">
       <Properties>
@@ -575,6 +584,9 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonA5MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonH4">
       <Properties>
@@ -587,6 +599,9 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonA4MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonG3">
       <Properties>

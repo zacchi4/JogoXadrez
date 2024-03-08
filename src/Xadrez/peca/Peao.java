@@ -1,3 +1,4 @@
+
 package Xadrez.peca;
 
 import Tabuleiro.Posicao;
